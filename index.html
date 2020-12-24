@@ -78,13 +78,13 @@ const LoginBtn=document.getElementById('login-btn').addEventListener('click',fun
         console.log("clicked")
         var depositAmount=document.getElementById('depositAmount').value;
         var depositNumber=parseFloat(depositAmount);
-           UpdateSpanTag('depositted',depositNumber,)
+           UpdateSpanText('depositted',depositNumber,)
         document.getElementById('depositAmount').value='';
-        UpdateSpanTag('currentBalance',depositNumber);
+        UpdateSpanText('currentBalance',depositNumber);
   
     })
 })
-    function UpdateSpanTag(id,current) {
+    function UpdateSpanText(id,current) {
         
         var totalBalance=parseFloat(document.getElementById(id).innerText)+ current;
             document.getElementById(id).innerText=totalBalance;
@@ -97,14 +97,13 @@ document.getElementById('withdraw-btn').addEventListener('click',function () {
         console.log("clicked")
         var withdrawAmount=document.getElementById('withdrawAmount').value;
         var withdrawNumber=parseFloat(withdrawAmount);
-        UpdateSpanTag('withdrawn',withdrawNumber);    
-
+        UpdateSpanText('withdrawn',withdrawNumber);    
         
-        document.getElementById('withdrawAmount').value='';
+        document.getElementById('withdrawAmount').value="";
         
-       
-        var totalBalance=parseFloat(document.getElementById('currentBalance').innerText)- withdrawNumber;
-        document.getElementById('currentBalance').innerText=totalBalance;
+        UpdateSpanText('currentBalance',-1*withdrawNumber);
+      //  var totalBalance=parseFloat(document.getElementById('currentBalance').innerText)- withdrawNumber;
+       // document.getElementById('currentBalance').innerText=totalBalance;
   
     })
 
